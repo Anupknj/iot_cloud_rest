@@ -48,6 +48,7 @@ def users():
         cursor.execute("SELECT * FROM student")
         rows = cursor.fetchall()
         resp = jsonify(rows)
+        print(resp)
         resp.status_code = 200
         return resp
     except Exception as e:
