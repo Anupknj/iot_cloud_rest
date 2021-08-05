@@ -40,7 +40,9 @@ def add_student():
 #Fetching the existing users data
 @app.route('/students')
 def users():
+    print("inside get fn")
     try:
+        print("inside try")
         conn = mysql.connect()
         cursor = conn.cursor(pymysql.cursors.DictCursor)
         cursor.execute("SELECT * FROM student")
@@ -49,6 +51,7 @@ def users():
         resp.status_code = 200
         return resp
     except Exception as e:
+        print("inside exception")
         print(e)
     finally:
         cursor.close() 
